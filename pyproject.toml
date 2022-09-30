@@ -7,9 +7,13 @@ exclude = []
  
 [project]
 name='castxml'
-version='0.4.5'
-cmake_install_dir='castxml/data'
 author='Kitware Inc'
+description='CastXML is a C-family abstract syntax tree XML output tool'
+readme='README.md'
+license = {file = "LICENSE"}
+home-page='https://github.com/CastXML/CastXML-python-distributions'
+
+dynamic = ["version"]
  
 include = [
   "/src/data/*.csv",
@@ -17,3 +21,12 @@ include = [
  
 [tool.hatch.build.targets.wheel]
 packages = ["castxml"]
+
+[tool.hatch.build.targets.wheel.hooks.custom]
+path = "scripts/hatch_build.py"
+dependencies = [
+  "pooch"
+]
+
+[tool.hatch.version]
+path = "castxml/__about__.py"
