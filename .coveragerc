@@ -1,0 +1,7 @@
+[run]
+branch = True
+include = castxml/*.py
+omit = castxml/__about__.py
+
+[xml]
+output = tests/coverage.xml
